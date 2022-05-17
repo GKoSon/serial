@@ -1,3 +1,4 @@
+//go:build linux
 // +build linux
 
 package serial
@@ -161,4 +162,8 @@ func (p *Port) Flush() error {
 
 func (p *Port) Close() (err error) {
 	return p.f.Close()
+}
+
+func (p *Port) GetPort() *os.File {
+	return p.f
 }

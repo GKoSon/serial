@@ -1,3 +1,4 @@
+//go:build windows
 // +build windows
 
 package serial
@@ -324,4 +325,8 @@ func getOverlappedResult(h syscall.Handle, overlapped *syscall.Overlapped) (int,
 	}
 
 	return n, nil
+}
+
+func (p *Port) GetPort() *os.File {
+	return p.f
 }
